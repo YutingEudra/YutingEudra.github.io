@@ -1,56 +1,150 @@
-<a href="https://jekyll-themes.com">
-<img src="https://img.shields.io/badge/featured%20on-JT-red.svg" height="20" alt="Jekyll Themes Shield" >
-</a>
+# texture
 
-# Orbit
-> This theme is designed by Xiaoying Riley at [3rd Wave Media](http://themes.3rdwavemedia.com/). 
-> Visit her [website](http://themes.3rdwavemedia.com/) for more themes.
+A configurable jekyll theme for simply beautiful blogs.
 
-I have made this into a Jekyll Theme. Checkout the live demo [here](https://webjeda.com/online-cv/).
+**Demo**: [samarsault.com/texture](https://samarsault.com/texture)
 
-<table>
-  <tr>
-    <th>Desktop</th>
-    <th>Mobile</th>
-  </tr>
-  <tr>
-    <td>
-        <img src="https://webjeda.com/online-cv/assets/images/desktop.png?raw=true" width="600"/>
-    </td>
-    <td>
-        <img src="https://webjeda.com/online-cv/assets/images/mobile.png?raw=true" width="250"/>
-    </td>
-  </tr>
-</table>
+![texture theme preview](/screen1.png)
 
+
+## Installation on Github Pages
+
+Add this line to your site's `_config.yml`:
+```yaml
+remote_theme: samarsault/texture
+```
+
+**NOTE: If you are forking this repo, remove `base_url: /texture` in the `_config.yml` which is required to load the required website assets**
 ## Installation
 
-* [Fork](https://github.com/sharu725/online-cv/fork) the repository
-* Delete the `gh-pages` branch
-* Re-create the `gh-pages` branch
-* Go to settings and set Github Pages source as master.
-* Your new site should be ready at `https://username.github.io/online-cv/`
+Add this line to your Jekyll site's `Gemfile`:
 
-Change all the details from one place: ``_data/data.yml``
+```ruby
+gem "texture"
+```
 
-Watch my [video](https://www.youtube.com/embed/T2nx6tj-ZH4) on installation.
+And add this line to your Jekyll site's `_config.yml`:
 
-## Skins
+```yaml
+theme: texture
+```
 
-There are 6 color schemes available:
+And then execute:
 
-| Blue | Turquoise | Green |
-|---------|---------|---------|
-| <img src="https://webjeda.com/online-cv/assets/images/blue.jpg" width="300"/> | <img src="https://webjeda.com/online-cv/assets/images/turquoise.jpg" width="300"/> | <img src="https://webjeda.com/online-cv/assets/images/green.jpg" width="300"/> |
+    $ bundle
 
-| Berry | Orange | Ceramic |
-|---------|---------|---------|
-| <img src="https://webjeda.com/online-cv/assets/images/berry.jpg" width="300"/> | <img src="https://webjeda.com/online-cv/assets/images/orange.jpg" width="300"/> | <img src="https://webjeda.com/online-cv/assets/images/ceramic.jpg" width="300"/> |
+Or install it yourself as:
 
-## Credits
+    $ gem install texture
 
-Thanks to [Nelson Estevão](https://github.com/nelsonmestevao) for all the [contributions](https://github.com/sharu725/online-cv/commits?author=nelsonmestevao).
+## Usage
 
-Thanks to [t-h-e(sfrost)](https://github.com/t-h-e) for all the [contributions](https://github.com/sharu725/online-cv/commits?author=t-h-e).
+The "texture" key in _config.yml is used to customize the theme data.
+```yaml
+texture:
+  title: Adam Denisov
+  tagline: Developer. Designer
+  date_format: "%b %-d, %Y"
 
-Check out for more themes: [**Jekyll Themes**](http://jekyll-themes.com).
+  social_links:
+    twitter: thelehhman
+    github:  thelehhman
+    linkedIn: in/thelehhman # format: locale/username
+```
+
+**Styling**
+
+Multiple header styles are supported using the "style" property under texture in `_config.yml`.
+
+```yaml
+texture:
+  style: [yellow|red|black|blue|green|purple]
+```
+
+For example, the blue style looks like this:
+
+![texture theme blue](/screen2.png)
+
+
+**Texture Picker**
+
+You can toggle the texture picker to show/experiment various textures on your site using the showPicker variable. Remember to make it `false` for production.
+
+```yaml
+texture:
+  showPicker: [false|true] # show the texture selector(development purposes)
+```
+
+**Comments (Disqus)**
+
+Comments on posts can be enabled by specifying your disqus_shortname under texture in `_config.yml`. For example,
+```yaml
+texture:
+  disqus_shortname: games
+```
+
+**Google Analytics**
+
+It can be enabled by specifying your analytics id under texture in `_config.yml`
+```yaml
+texture:
+  analytics_id: '< YOUR ID >'
+```
+
+**Excerpts**
+
+Excerpts can be enabled by adding the following line to your `_config.yml`
+```yaml
+show_excerpts: true
+```
+
+**Toggle Navbar**
+
+```yaml
+texture:
+  showNav: true
+```
+
+**Navigation**
+
+After setting `showNav` to true navigation can be built by adding the following to your `_config.yml`
+
+```yaml
+texture:
+  navigation:
+    - title: My Work
+      url: "/my-work"
+    - title: Resume
+      url: "/resume"
+```
+
+**Layouts**
+
+- Home
+- Page
+- Post
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/samarsault/texture. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+
+## Development
+
+To set up your environment to develop this theme, run `bundle install`.
+
+Your theme is setup just like a normal Jekyll site! To test your theme, run `bundle exec jekyll serve` and open your browser at `http://localhost:4000`. This starts a Jekyll server using your theme. Add pages, documents, data, etc. like normal to test your theme's contents. As you make modifications to your theme and to your content, your site will regenerate and you should see the changes in the browser after a refresh, just like normal.
+
+When your theme is released, only the files in `_layouts`, `_includes`, `_sass` and `assets` tracked with Git will be bundled.
+To add a custom directory to your theme-gem, please edit the regexp in `texture.gemspec` accordingly.
+
+## Donation
+If this project help you reduce time to develop, you can give me a cup of coffee :) 
+
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://paypal.me/thelehhman)
+
+## License
+
+The theme is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+## More Themes
+[plainwhite](https://github.com/samarsault/plainwhite-jekyll)
